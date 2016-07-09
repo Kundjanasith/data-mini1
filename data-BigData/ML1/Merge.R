@@ -1,0 +1,13 @@
+file53 <- read.csv('clean_53.csv')
+file54 <- read.csv('clean_54.csv')
+file55 <- read.csv('clean_55.csv')
+file56 <- read.csv('clean_56.csv')
+file57 <- read.csv('clean_57.csv')
+res1 <- rbind(file53,file54)
+res2 <- rbind(file55,file56)
+res3 <- rbind(res1,res2)
+res4 <- rbind(res3,file57)
+res4 <- res4[c('ID','Program','entry2553_GPAX')]
+names(res4)[3] <- paste("GPAX")
+res5 <- subset(res4, Program!='No')
+write.csv(res5,file='source_ml1.csv',row.names=FALSE)

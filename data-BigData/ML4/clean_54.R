@@ -1,0 +1,16 @@
+file <- read.csv('../Q54.csv')
+file <- file[c('ScholarshipCode','X2554_GPAX')]
+names(file)[1] <- paste("scholarship_code")
+names(file)[2] <- paste("graduate_GPAX")
+#Graduate_GPAX
+file$graduate_GPAX_Group <- ifelse(file$graduate_GPAX>=0.0, 1, file$graduate_GPAX_Group)
+file$graduate_GPAX_Group <- ifelse(file$graduate_GPAX>=0.5, 2, file$graduate_GPAX_Group)
+file$graduate_GPAX_Group <- ifelse(file$graduate_GPAX>=1.0, 3, file$graduate_GPAX_Group)
+file$graduate_GPAX_Group <- ifelse(file$graduate_GPAX>=1.5, 4, file$graduate_GPAX_Group)
+file$graduate_GPAX_Group <- ifelse(file$graduate_GPAX>=2.0, 5, file$graduate_GPAX_Group)
+file$graduate_GPAX_Group <- ifelse(file$graduate_GPAX>=2.5, 6, file$graduate_GPAX_Group)
+file$graduate_GPAX_Group <- ifelse(file$graduate_GPAX>=3.0, 7, file$graduate_GPAX_Group)
+file$graduate_GPAX_Group <- ifelse(file$graduate_GPAX>=3.5, 8, file$graduate_GPAX_Group)
+#file <- unique(file)
+write.csv(file, file='clean_54.csv',row.names=FALSE)
+print("54 - Finished!!!")

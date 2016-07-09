@@ -1,0 +1,5 @@
+file <- read.csv('Q53_BYR.csv')
+output <- subset(file, EnrolledYear==2556)
+print(output)
+nrow(output)
+write.csv(output, file = 'Q53-to-CSV-2556.csv')

@@ -1,0 +1,5 @@
+file <- read.csv('Q54-to-CSV-2554.csv')
+output <- subset(file, Semester==2)
+print(output)
+nrow(output)
+write.csv(output, file = 'Q54-to-CSV-2554-2.csv')
